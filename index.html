@@ -2,12 +2,57 @@
 <html>
 <head>
     <title>nightaiga</title>
+    <style>
+        .player-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <h1>Audio Stream Player</h1>
-    <audio controls>
-        <source src="https://radio.pears.fun/listen/pears_project_radio/play.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <div class="player-container">
+        <h1>Custom Audio Stream Player</h1>
+        <audio id="audio-player">
+            <source src="http://example.com/stream.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <div class="controls">
+            <button class="button" onclick="playAudio()">Play</button>
+            <button class="button" onclick="pauseAudio()">Pause</button>
+            <button class="button" onclick="stopAudio()">Stop</button>
+        </div>
+    </div>
+
+    <script>
+        var audio = document.getElementById('audio-player');
+
+        function playAudio() {
+            audio.play();
+        }
+
+        function pauseAudio() {
+            audio.pause();
+        }
+
+        function stopAudio() {
+            audio.pause();
+            audio.currentTime = 0;
+        }
+    </script>
 </body>
 </html>
